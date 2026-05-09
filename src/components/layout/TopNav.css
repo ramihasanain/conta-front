@@ -1,0 +1,94 @@
+.topnav {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: var(--bg-desktop);
+}
+
+.search-container {
+  flex: 1;
+  max-width: 720px;
+  margin-left: 8px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-surface-hover);
+  border-radius: var(--radius-full);
+  padding: 0 16px;
+  height: 48px;
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+}
+
+.search-bar:focus-within {
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-light);
+}
+
+.search-icon {
+  color: var(--text-tertiary);
+  margin-right: 12px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.topnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.btn-icon:hover .text-tertiary {
+  color: var(--text-secondary);
+}
+
+.profile-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast);
+}
+
+.profile-button:hover {
+  box-shadow: var(--shadow-md);
+}

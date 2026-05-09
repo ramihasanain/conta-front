@@ -1,0 +1,170 @@
+.sign-page-container {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  color: #0f172a;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header */
+.sign-header {
+  width: 100%;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.secure-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sign-fossa-logo {
+  height: 40px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Body */
+.sign-body {
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+}
+
+.sign-document-info {
+  padding: 32px;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sign-document-info h2 {
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.sign-document-info p {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  color: #475569;
+}
+
+.sign-document-preview {
+  padding: 40px 32px;
+  max-height: 500px;
+  overflow-y: auto;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+  background: white;
+}
+
+/* Action Area */
+.sign-action-area {
+  padding: 32px;
+  border-top: 2px dashed #cbd5e1;
+  background: #fafaf9;
+}
+
+.sign-action-area h3 {
+  margin: 0 0 8px 0;
+  color: #0f172a;
+  font-size: 18px;
+}
+
+.signature-text-input {
+  width: 100%;
+  padding: 16px;
+  font-size: 24px;
+  font-family: 'Caveat', 'Cedarville Cursive', cursive, sans-serif;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+  margin-bottom: 24px;
+  color: #1e293b;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.signature-text-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.btn-sign-submit {
+  width: 100%;
+  padding: 16px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-sign-submit:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.btn-sign-submit:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Cards */
+.error-card, .success-card {
+  text-align: center;
+  background: white;
+  padding: 48px;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.error-card h2, .success-card h2 {
+  margin: 0 0 16px 0;
+  color: #0f172a;
+}
+
+.success-card .small-text {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.loading-spinner {
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
