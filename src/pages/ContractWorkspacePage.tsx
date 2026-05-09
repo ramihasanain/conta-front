@@ -1672,7 +1672,7 @@ export const ContractWorkspacePage: React.FC = () => {
                   <div className="approval-vertical-line" style={{position: 'absolute', left: '15px', top: '10px', bottom: '10px', width: '2px', background: '#cbd5e1'}}></div>
                     
                   {workflowSequence.map((step) => {
-                      const isActiveTurn = ['pending', 'returned'].includes(step.status) && step.order === activeWorkflowOrder;
+                      const isActiveTurn = step.status && ['pending', 'returned'].includes(step.status) && step.order === activeWorkflowOrder;
                       return (
                       <div key={step.id} style={{ position: 'relative', zIndex: 1, display: 'flex', gap: '16px', marginBottom: '24px' }}>
                          <div className={`approval-node ${isActiveTurn ? 'active-pulse' : ''}`} style={{ width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, background: step.status === 'approved' ? '#10b981' : step.status === 'rejected' ? '#ef4444' : 'white', border: `3px solid ${step.status === 'approved' ? '#10b981' : step.status === 'rejected' ? '#ef4444' : isActiveTurn ? '#4f46e5' : '#cbd5e1'}` }}>
@@ -1694,11 +1694,11 @@ export const ContractWorkspacePage: React.FC = () => {
                            {isActiveTurn && currentUser?.id === step.assigned_user?.id && (
                                <div style={{display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px', width: '100%', borderTop: '1px dashed #cbd5e1', paddingTop: '16px'}}>
                                    <input type="text" placeholder="Add comment (optional)" value={workflowComment} onChange={e => setWorkflowComment(e.target.value)} className="ghost-input" style={{ border: '1px solid #cbd5e1', background: 'white', padding: '10px', borderRadius: '8px', fontSize: '13px' }} />
-                                   {workflowSequence.filter(s => s.order < step.order && s.assigned_user).length > 0 && (
+                                   {workflowSequence.filter(s => (s.order || 0) < (step.order || 0) && s.assigned_user).length > 0 && (
                                        <div style={{fontSize: '12px', color: '#475569', background: '#f1f5f9', padding: '10px', borderRadius: '8px', border: '1px solid #e2e8f0'}}>
                                            <p style={{fontWeight: 600, marginBottom: '6px'}}>Who can see this comment? (Default: Everyone)</p>
                                            <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px'}}>
-                                               {Array.from(new Map(workflowSequence.filter(s => s.order < step.order && s.assigned_user).map(s => [s.assigned_user.id, s.assigned_user])).values()).map((user: any) => (
+                                               {Array.from(new Map(workflowSequence.filter(s => (s.order || 0) < (step.order || 0) && s.assigned_user).map(s => [s.assigned_user.id, s.assigned_user])).values()).map((user: any) => (
                                                    <label key={user.id} style={{display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', fontWeight: 500}}>
                                                        <input type="checkbox" checked={selectedCommentVisibility.includes(String(user.id))} onChange={(e) => { if (e.target.checked) setSelectedCommentVisibility([...selectedCommentVisibility, String(user.id)]); else setSelectedCommentVisibility(selectedCommentVisibility.filter(id => id !== String(user.id))); }} /> {user.username}
                                                    </label>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, X, Printer } from 'lucide-react';
+import { Download, X } from 'lucide-react';
 import './InvoiceViewer.css';
 
 interface InvoiceData {

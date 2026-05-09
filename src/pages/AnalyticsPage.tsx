@@ -467,7 +467,7 @@ export const AnalyticsPage: React.FC = () => {
                       <XAxis dataKey="month" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
                       <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(val) => `${val / 1000}k`} />
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                      <Tooltip formatter={(value: number) => [value.toLocaleString(), 'Value']} />
+                      <Tooltip formatter={(value: any) => [value.toLocaleString(), 'Value']} />
                       <Area type="monotone" dataKey="value" stroke="#4f46e5" strokeWidth={3} fillOpacity={1} fill="url(#colorValue)" />
                    </AreaChart>
                 </ResponsiveContainer>
@@ -519,7 +519,7 @@ export const AnalyticsPage: React.FC = () => {
                       <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
                       <XAxis type="number" stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(val) => `${val / 1000}k`} />
                       <YAxis dataKey="name" type="category" stroke="#475569" fontSize={13} fontWeight={600} tickLine={false} axisLine={false} width={120} />
-                      <Tooltip formatter={(value: number) => [value.toLocaleString(), 'Total Value']} cursor={{fill: '#f1f5f9'}} />
+                      <Tooltip formatter={(value: any) => [value.toLocaleString(), 'Total Value']} cursor={{fill: '#f1f5f9'}} />
                       <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={32}>
                          {clientData.map((_entry, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
